@@ -13,10 +13,8 @@
 int _printf(const char *format, ...)
 {
 	va_list arglist;
-	int i = 0, j = 0, c = 0;
+	int i = 0, j = 0;
 	char *myString;
-	char myChar;
-
 
 	va_start(arglist, format);
 	while (format[i])
@@ -26,9 +24,7 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case 'c':
-					myChar = va_arg(arglist, int);
-					_putchar(myChar);
-					c++;
+					_putchar(va_arg(arglist, int));
 					break;
 				case 's':
 					myString = va_arg(arglist, char *);
@@ -36,19 +32,22 @@ int _printf(const char *format, ...)
 					{
 						_putchar(myString[j]);
 						j++;
-						c++;
 					}
+					break;
+				case 'd':
+					_putint(va_arg(arglist, int));
+					break;
+				case 'i':
+					_putint(va_arg(arglist, int));
 					break;
 				default:
 					break;
-
 			}
 			i += 2;
 			continue;
 		}
 		_putchar(format[i]);
 		i++;
-		c++;
 	}
-	return (c);
+	return (0);
 }
