@@ -13,7 +13,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arglist;
-	int i = 0, j = 0;
+	int i = 0, j = 0, c = 0;
 	char *myString;
 
 	va_start(arglist, format);
@@ -35,14 +35,6 @@ int _printf(const char *format, ...)
 						j++;
 						c++;
 					}
-					break;
-				case 'd':
-					_putint(va_arg(arglist, int));
-					c++;
-					break;
-				case 'i':
-					_putint(va_arg(arglist, int));
-					c++;
 					break;
 				default:
 					break;
