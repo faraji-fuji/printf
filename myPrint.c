@@ -25,6 +25,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					_putchar(va_arg(arglist, int));
+					c++;
 					break;
 				case 's':
 					myString = va_arg(arglist, char *);
@@ -32,13 +33,16 @@ int _printf(const char *format, ...)
 					{
 						_putchar(myString[j]);
 						j++;
+						c++;
 					}
 					break;
 				case 'd':
 					_putint(va_arg(arglist, int));
+					c++;
 					break;
 				case 'i':
 					_putint(va_arg(arglist, int));
+					c++;
 					break;
 				default:
 					break;
@@ -48,6 +52,7 @@ int _printf(const char *format, ...)
 		}
 		_putchar(format[i]);
 		i++;
+		c++;
 	}
-	return (0);
+	return (c);
 }
